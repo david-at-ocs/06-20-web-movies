@@ -290,7 +290,7 @@ get "/delete_person" do
 end
 
 get "/delete_location" do
-  @new_location = Person.find_as_object(params["location_id"].to_i)
+  @new_location = Location.find_as_object(params["location_id"].to_i)
   
   if @new_location.delete
     erb :"delete_location_success"
