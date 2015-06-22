@@ -1,0 +1,12 @@
+<h1>A list of all locations in the database:</h1>
+
+<ul>
+  <% Location.all.each do |loc| %>
+    <li>ID: <%= loc.id %> -- <%= loc.location %>, <%= loc.description %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><a href="view_menu">View menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

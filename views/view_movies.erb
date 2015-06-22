@@ -1,0 +1,12 @@
+<h1>A list of all movies in the database:</h1>
+
+<ul>
+  <% Movie.all.each do |movie| %>
+    <li>ID: <%= movie.id %> -- <%= movie.title %>, <%= movie.genre %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><a href="view_menu">View menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

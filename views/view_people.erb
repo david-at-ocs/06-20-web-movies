@@ -1,0 +1,12 @@
+<h1>A list of all people in the database:</h1>
+
+<ul>
+  <% Person.all.each do |person| %>
+    <li>ID: <%= person.id %> -- <%= person.name %>, <%= person.profession %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><a href="view_menu">View menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

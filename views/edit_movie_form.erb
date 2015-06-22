@@ -1,0 +1,60 @@
+<h1>Edit Movie</h1>
+<ul>
+  <li><h3>Edit Movie Title</h3>
+    <form action="/edit_title">
+      <select name="movie_id">
+        <% Movie.all.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %></option>
+        <% end %>
+      </select>  
+      <input type="text" placeholder="New Title" name="title">
+      <input type="submit">
+    </form>
+  </li>
+
+  <li><h3>Edit Movie Genre</h3>
+    <form action="/edit_movie_genre">
+      <select name="movie_id">
+        <% Movie.all.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %>, <%= movie.genre %></option>
+        <% end %>
+      </select>  
+      <input type="text" placeholder="New Genre" name="genre">
+      <input type="submit">
+    </form>
+  </li>
+
+  <li><h3>Change Movie Location</h3>
+    <form action="/change_movie_location">
+      <select name="movie_id">
+        <% Movie.all.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %>, <%= movie.location_id %></option>
+        <% end %>
+      </select>
+      <select name="location_id">
+        <% Location.all.each do |loc| %>
+          <option value="<%= loc.id %>"><%= loc.id %>. <%= loc.location %>, <%= loc.description %></option>
+        <% end %>
+      </select>
+      <input type="submit">
+    </form>
+  </li>
+
+  <li><h3>If you don't see the location you want from the drop down above, add one here</h3>
+    <form action="/add_movie_location">
+      <select name="movie_id">
+        <% Movie.all.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %>, <%= movie.location_id %></option>
+        <% end %>
+      </select>
+      <input type="text" placeholder="Location" name="location">
+      <input type="text" placeholder="Description" name="description">
+      <input type="submit">
+    </form>
+  </li>
+</ul>
+
+<ul>
+  <li><a href="edit_menu">Edit menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>
