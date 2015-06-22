@@ -106,10 +106,10 @@ class Movie
   #   MOVIEDB.execute("DELETE FROM movies WHERE id = #{@id};")
   # end
   
-  def delete(movie_id)
-    movie_to_delete = Movie.new(movie_id)
-    movie_to_delete.delete_mod       
-  end
+  # def delete(movie_id)
+  #   movie_to_delete = Movie.new(movie_id)
+  #   movie_to_delete.delete_mod
+  # end
   
   
   
@@ -166,9 +166,9 @@ class Movie
  #    Movie.new(movie_id, temp_title, temp_genre)
  #  end
   
-  def delete_movie
-    MOVIEDB.execute("DELETE FROM movies WHERE id = '#{@id}';")
-  end
+  # def delete_movie
+  #   MOVIEDB.execute("DELETE FROM movies WHERE id = '#{@id}';")
+  # end
   
   def change_title(new_title)
     MOVIEDB.execute("UPDATE movies SET title = '#{new_title}' WHERE id = '#{@id}';")

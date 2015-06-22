@@ -278,6 +278,17 @@ get "/delete_form" do
   erb :"delete_form"
 end
 
+get "/delete_movie" do
+  @new_movie = Movie.find_as_object(params["movie_id"].to_i)
+  
+  if @new_movie.delete
+    erb :"delete_movie_success"
+  else
+    @error = true
+    erb :"delete_form"
+  end
+end
+
 get "/delete_person" do
   @new_person = Person.find_as_object(params["person_id"].to_i)
   
