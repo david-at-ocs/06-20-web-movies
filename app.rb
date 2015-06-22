@@ -258,8 +258,8 @@ end
 get "/edit_person_profession" do
   # erb :"edit_location_name"  
 
-  @new_person = Location.find_as_object(params["loc_id"].to_i)
-  @new_person.description = params["description"]
+  @new_person = Person.find_as_object(params["person_id"].to_i)
+  @new_person.profession = params["profession"]
   if @new_person.save
     erb :"person_profession_changed"
   else

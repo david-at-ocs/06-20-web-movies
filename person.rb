@@ -84,7 +84,7 @@ class Person
     if self.name.blank?
       return false
     else
-      MOVIEDB.execute("UPDATE people SET name = '#{@name}', profession = '#{profession}' WHERE id = #{@id};")
+      MOVIEDB.execute("UPDATE people SET name = '#{@name}', profession = '#{@profession}' WHERE id = #{@id};")
     end
   end
   
