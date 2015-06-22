@@ -124,9 +124,9 @@ class Location
   
   # Deletes an entry
   # This will also have to delete any record in 
-  def delete
-    MOVIEDB.execute("DELETE FROM locations WHERE id = #{@id};")
-  end
+  # def delete
+  #   MOVIEDB.execute("DELETE FROM locations WHERE id = #{@id};")
+  # end
   
 
 end
