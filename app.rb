@@ -117,6 +117,14 @@ get "/view_locations" do
   erb :"view_locations"
 end
 
+get "/view_movies_by_location" do
+  erb :"view_movies_by_location"
+end
+
+get "/movies_by_location" do
+  erb :"movies_by_location"
+end
+
 # -------------------------------------------- End View Menu ---------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------------
 

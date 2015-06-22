@@ -1,0 +1,11 @@
+<h1>A list of all movies at a given location:</h1>
+<ul>
+  <% Movie.where_id_is(params["loc_id"].to_i).each do |all| %>
+    <li>ID <%= all.id %> -- <%= all.title %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><a href="view_menu">View menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

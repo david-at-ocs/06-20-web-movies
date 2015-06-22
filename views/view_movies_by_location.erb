@@ -1,0 +1,15 @@
+<h1>A list of all movies in the database:</h1>
+
+<form action="/movies_by_location">
+  <select name="loc_id">
+    <% Location.all.each do |loc| %>
+      <option value="<%= loc.id %>"><%= loc.id %>. <%= loc.location %>, <%= loc.description %></option>
+    <% end %>
+  </select>
+  <input type="submit">
+</form>
+
+<ul>
+  <li><a href="view_menu">View menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>
