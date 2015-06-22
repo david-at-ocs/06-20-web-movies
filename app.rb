@@ -136,8 +136,6 @@ get "/edit_menu" do
   erb :"edit_menu"
 end
 
-
-
 get "/edit_movie" do
   erb :"edit_movie_form"
 end
@@ -168,7 +166,7 @@ get "/edit_movie_genre" do
   end
 end
 
-# -------------------------------------------- Change Movie Location ------------------------------------------------
+# -------------------------------------------- Edit: Change Movie Location ------------------------------------------
 
 get "/change_movie_location" do
   @movie = Movie.find_as_object(params["movie_id"].to_i)
@@ -183,7 +181,7 @@ get "/change_movie_location" do
   end
 end
 
-# -------------------------------------------- Add Location to Movie ------------------------------------------------
+# -------------------------------------------- Edit: Add Location to Movie -------------------------------------------
 
 get "/add_movie_location" do
   new_location_id = Location.add({"location" => params["location"], "description" => params["description"]})
@@ -199,6 +197,25 @@ get "/add_movie_location" do
     else
       erb :"movie_location_not_added"
     end    
+  end
+end
+
+
+# -------------------------------------------- Edit Location ----------------------------------------------------------
+
+get "/edit_location" do
+  erb :"edit_location_form"
+end
+
+get "/edit_location_name" do
+  # erb :"edit_location_name"  
+
+  @new_location = Location.find_as_object(params["loc_id"].to_i)
+  @new_location.location = params["location"]
+  if @new_location.save
+    erb :"location_name_changed"
+  else
+    erb :"location_name_not_changed"
   end
 end
 

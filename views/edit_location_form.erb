@@ -1,0 +1,30 @@
+<h1>Edit Location</h1>
+<ul>
+  <li><h3>Edit Location Name</h3>
+    <form action="/edit_location_name">
+      <select name="loc_id">
+        <% Location.all.each do |loc| %>
+          <option value="<%= loc.id %>"><%= loc.id %>. <%= loc.location %></option>
+        <% end %>
+      </select>  
+      <input type="text" placeholder="New Location Name" name="location">
+      <input type="submit">
+    </form>
+  </li>
+
+  <li><h3>Edit Location Description</h3>
+    <form action="/edit_location_description">
+      <select name="loc_id">
+        <% Location.all.each do |loc| %>
+          <option value="<%= loc.id %>"><%= loc.id %>. <%= loc.location %> <%= loc.description %></option>
+        <% end %>
+      </select>  
+      <input type="text" placeholder="New Location Description" name="description">
+      <input type="submit">
+    </form>
+  </li>
+</ul>
+<ul>
+  <li><a href="edit_menu">Edit menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

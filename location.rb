@@ -114,6 +114,7 @@ class Location
   #
   # Returns an empty Array. TODO - This should return something better.
   def save
+    binding.pry
     MOVIEDB.execute("UPDATE locations SET location = '#{@location}', description = '#{description}' WHERE id = #{@id};")
   end
   
