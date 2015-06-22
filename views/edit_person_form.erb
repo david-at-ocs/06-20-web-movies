@@ -1,0 +1,36 @@
+<h1>Edit Person</h1>
+<% if @error %>
+  <h3>There was an error updating the person. Please try again.</h3>
+<% end %>
+<ul>
+  <li><h3>Change Person's Name</h3>
+    <form action="/edit_person_name">
+      <select name="person_id">
+        <% Person.all.each do |person| %>
+          <option value="<%= person.id %>"><%= person.id %>. <%= person.name %>, <%= person.profession %></option>
+        <% end %>
+      </select>
+      <input type="text" placeholder="New Name" name="name">
+      <input type="submit">
+    </form>
+  </li>
+
+  <li><h3>Change Person's Profession</h3>
+    <form action="/edit_person_profession">
+      <select name="person_id">
+        <% Person.all.each do |person| %>
+          <option value="<%= person.id %>"><%= person.id %>. <%= person.name %>, <%= person.profession %></option>
+        <% end %>
+      </select>
+      <select name="profession">
+        <option value="Actor">Actor</option>
+        <option value="Director">Director</option>
+      </select>
+      <input type="submit">
+    </form>
+  </li>
+</ul>
+<ul>
+  <li><a href="edit_menu">Edit menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

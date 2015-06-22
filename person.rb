@@ -76,4 +76,16 @@ class Person
     MOVIEDB.execute("DELETE FROM people WHERE id = '#{@id}';")
   end
   
+  
+  # Updates the database with all values for the student.
+  #
+  # Returns an empty Array. TODO - This should return something better.
+  def save
+    if self.name.blank?
+      return false
+    else
+      MOVIEDB.execute("UPDATE people SET name = '#{@name}', profession = '#{profession}' WHERE id = #{@id};")
+    end
+  end
+  
 end

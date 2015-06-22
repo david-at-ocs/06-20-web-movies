@@ -235,6 +235,40 @@ get "/edit_location_description" do
 end
 
 
+# -------------------------------------------- Edit Person ------------------------------------------------------------
+
+get "/edit_person" do
+  erb :"edit_person_form"
+end
+
+get "/edit_person_name" do
+  # erb :"edit_location_name"  
+
+  @new_person = Person.find_as_object(params["person_id"].to_i)
+  @new_person.name = params["name"]
+  if @new_person.save
+    erb :"person_name_changed"
+  else
+    @error = true
+    erb :"edit_location_form"
+  end
+end
+
+
+get "/edit_person_profession" do
+  # erb :"edit_location_name"  
+
+  @new_person = Location.find_as_object(params["loc_id"].to_i)
+  @new_person.description = params["description"]
+  if @new_person.save
+    erb :"person_profession_changed"
+  else
+    @error = true
+    erb :"edit_person_form"
+  end
+end
+
+
 
 
 
