@@ -215,7 +215,22 @@ get "/edit_location_name" do
   if @new_location.save
     erb :"location_name_changed"
   else
-    erb :"location_name_not_changed"
+    @error = true
+    erb :"edit_location_form"
+  end
+end
+
+
+get "/edit_location_description" do
+  # erb :"edit_location_name"  
+
+  @new_location = Location.find_as_object(params["loc_id"].to_i)
+  @new_location.description = params["description"]
+  if @new_location.save
+    erb :"location_description_changed"
+  else
+    @error = true
+    erb :"edit_location_form"
   end
 end
 
