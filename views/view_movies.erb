@@ -2,7 +2,7 @@
 
 <ul>
   <% Movie.all.each do |movie| %>
-    <li>ID: <%= movie.id %> -- <%= movie.title %>, <%= movie.genre %></li>
+    <li>ID: <%= movie.id %> -- <%= movie.title %>, Genre: <%= movie.genre %> Location ID: <%= movie.location_id %></li>
   <% end %>
 </ul>
 

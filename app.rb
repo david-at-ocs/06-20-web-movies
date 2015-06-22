@@ -36,7 +36,7 @@ end
 
 
 # --------------------------------------------------------------------------------------------------------------------
-# -------------------------------------------- Add Menu --------------------------------------------------------------
+# -------------------------------------------- Start Add Menu --------------------------------------------------------
 
 
 get "/add_menu" do
@@ -256,10 +256,9 @@ end
 
 
 get "/edit_person_profession" do
-  # erb :"edit_location_name"  
-
   @new_person = Person.find_as_object(params["person_id"].to_i)
   @new_person.profession = params["profession"]
+  
   if @new_person.save
     erb :"person_profession_changed"
   else
@@ -268,7 +267,27 @@ get "/edit_person_profession" do
   end
 end
 
+# -------------------------------------------- End Edit Menu ---------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------------
 
+
+# --------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------Start Delete Menu ------------------------------------------------------
+
+get "/delete_form" do
+  erb :"delete_form"
+end
+
+get "/delete_person" do
+  @new_person = Person.find_as_object(params["person_id"].to_i)
+  
+  if @new_person.delete
+    erb :"delete_person_success"
+  else
+    @error = true
+    erb :"delete_form"
+  end
+end
 
 
 

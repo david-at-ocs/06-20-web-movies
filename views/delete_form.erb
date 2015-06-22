@@ -1,0 +1,43 @@
+<h1>Delete</h1>
+<% if @error %>
+  <h3>There was an error updating the person. Please try again.</h3>
+<% end %>
+<ul>
+  <li><h3>Delete Movie</h3>
+    <form action="/delete_movie">
+      <select name="movie_id">
+        <% Movie.all.each do |movie| %>
+          <option value="<%= movie.id %>"><%= movie.id %>. <%= movie.title %></option>
+        <% end %>
+      </select> 
+      <input type="submit" value="Delete">
+    </form>
+  </li>
+
+  <li><h3>Delete Location</h3>
+    <form action="/delete_location">
+      <select name="location_id">
+        <% Location.all.each do |loc| %>
+          <option value="<%= loc.id %>"><%= loc.id %>. <%= loc.location %>, <%= loc.description %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Delete">
+    </form>
+  </li>
+
+  <li><h3>Delete Person</h3>
+    <form action="/delete_person">
+      <select name="person_id">
+        <% Person.all.each do |person| %>
+          <option value="<%= person.id %>"><%= person.id %>. <%= person.name %>, <%= person.profession %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Delete">
+    </form>
+  </li>
+</ul>
+
+<ul>
+  <li><a href="edit_menu">Edit menu</a></li>
+  <li><a href="homepage">Main menu</a></li>
+</ul>

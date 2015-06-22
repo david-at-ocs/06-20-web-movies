@@ -72,9 +72,9 @@ class Person
   end  
   
   # deletes a person from the db
-  def delete
-    MOVIEDB.execute("DELETE FROM people WHERE id = '#{@id}';")
-  end
+  # def delete
+  #   MOVIEDB.execute("DELETE FROM people WHERE id = '#{@id}';")
+  # end
   
   
   # Updates the database with all values for the student.
