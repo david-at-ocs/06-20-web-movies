@@ -34,7 +34,6 @@ class Location
 
     # CONNECTION.execute returns an Array of Hashes, like:
     # [{"id" => 1, "name" => "Sumeet", "age" => 500}]
-
     # Here, I'm using the `find` method from DatabaseClassMethods.
     results = Location.find(loc_id).first
     # {"id" => 1, "name" => "Sumeet", "age" => 500}

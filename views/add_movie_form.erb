@@ -1,9 +1,18 @@
 <h1>Add Movie</h1>
+<% if @error %>
+  <h3>There was an error updating the person. Please try again.</h3>
+<% end %>
 
 <form action="/save_movie">
-  <input type="text" placeholder="Movie Title" name="title">
-  <input type="text" placeholder="Genre" name="genre">
-  <!--<input type="text" placeholder="Location (optional)" name="location">-->
+  <input type="text" placeholder="Movie Title (Required)" name="title">
+  <input type="text" placeholder="Genre (Required)" name="genre">
+      <select name="location_id">
+        <option value="0">Choose a location (Required)</option>
+        <% Location.all.each do |loc| %>
+          <option value="<%= loc.id %>"><%= loc.id %>. <%= loc.location %>, <%= loc.description %></option>
+        <% end %>
+      </select>
+  <!-- <input type="text" placeholder="Location (optional)" name="location"> -->
   <input type="submit">
 </form>
 

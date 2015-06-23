@@ -66,10 +66,8 @@ class Movie
   # Returns the Integer ID that the database sends back.
   def self.add(options={})
     if options["location_id"] == 0
-      options.delete("location_id")
-    end
-        
-    if options["genre"].blank? || options["title"].blank?
+      return false
+    elsif options["genre"].blank? || options["title"].blank?
       return false
     else
       self.add_to_database(options)
@@ -147,6 +145,10 @@ class Movie
     
     return results_as_objects
     
+  end
+  
+  def location
+    Location.find_as_object(@location_id)
   end
   
   

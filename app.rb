@@ -49,13 +49,14 @@ get "/add_movie_form" do
 end
 
 get "/save_movie" do
-  new_movie_id = Movie.add({"title" => params["title"], "genre" => params["genre"]})
+  new_movie_id = Movie.add({"title" => params["title"], "genre" => params["genre"], "location_id" => params["location_id"].to_i})
   
   if new_movie_id
     @new_movie = Movie.find_as_object(new_movie_id)
     erb:"movie_added"
   else
-    erb:"movie_not_added"
+    @error = true
+    erb:"add_movie_form"
   end
 end
 
@@ -106,6 +107,7 @@ get "/view_menu" do
 end
 
 get "/view_movies" do
+  @all_movies = Movie.all
   erb :"view_movies"
 end
 

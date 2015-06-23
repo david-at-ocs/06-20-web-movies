@@ -1,8 +1,13 @@
 <h1>A list of all movies in the database:</h1>
-
 <ul>
-  <% Movie.all.each do |movie| %>
-    <li>ID: <%= movie.id %> -- <%= movie.title %>, Genre: <%= movie.genre %> Location ID: <%= movie.location_id %></li>
+  <% @all_movies.each do |movie| %>
+    <li><%= movie.title %>
+      <ul>
+        <!--< li>ID: <%= movie.id %></li> -->
+        <li>Genre: <%= movie.genre %></li>
+        <li>Location: <%= movie.location.location %></li>
+      </ul>
+    </li>
   <% end %>
 </ul>
 
