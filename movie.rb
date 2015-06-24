@@ -57,6 +57,7 @@ class Movie
     @id = movie_id
     results = Movie.find(movie_id).first
     Movie.new(results)
+    binding.pry
   end
   
   
